@@ -49,6 +49,9 @@ jobs:
 
             - name: Build ${{ inputs.app }}
               run: yarn build:${{ inputs.app }}
+              env:
+                NEXT_PUBLIC_ENTE_ENDPOINT: ${{ vars.NEXT_PUBLIC_ENTE_ENDPOINT }}
+                NEXT_PUBLIC_ALBUMS_ENDPOINT: ${{ vars.NEXT_PUBLIC_ALBUMS_ENDPOINT }}
 
             - name: Publish ${{ inputs.app }} to preview
               uses: cloudflare/wrangler-action@v3
